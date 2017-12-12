@@ -1,0 +1,8 @@
+[submodule "Firmware/EM4100_Tx"]
+	path = Firmware/EM4100_Tx
+	url = https://github.com/Brandon2255p/EM4100_Tx.git
+	branch = master
+[submodule "KiCadLibs"]
+	path = KiCadLibs
+	url = https://github.com/Brandon2255p/KiCadLibs.git
+	branch = master
