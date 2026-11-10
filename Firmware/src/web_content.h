@@ -98,7 +98,7 @@ static const char INDEX_HTML[] PROGMEM = R"HTML(<!doctype html>
         <div><label>Sweep min (&micro;s)</label><input id="f_smin" type="number" value="200" min="50" max="2000"></div>
         <div><label>Sweep max (&micro;s)</label><input id="f_smax" type="number" value="220" min="50" max="2000"></div>
       </div>
-      <div class="hint">Half-bit delay is swept across the range to match readers with slightly different clocks (original firmware behavior: 200&ndash;220&micro;s).</div>
+      <div class="hint">Half-bit delay is swept across the range to match readers with slightly different clocks (default 200&ndash;220&micro;s).</div>
     </div>
 
     <div id="fixedFields" style="display:none">

@@ -1,19 +1,17 @@
-# TinyRFID — ESP32 + Web Interface
+# TinyRFID Firmware — ESP32 + Web Interface
 
-An ESP32 upgrade of the original TinyRFID EM4100 (125 kHz) tag emulator. It
-serves a small web app from the ESP32 so you can store card IDs **in your
-browser** and transmit any of them on demand.
+The TinyRFID firmware: an ESP32 EM4100 (125 kHz) tag emulator that serves a
+small web app so you can store card IDs **in your browser** and transmit any
+of them on demand. This is a PlatformIO project.
 
-The low-level EM4100 encoding and Manchester half-bit timing are ported
-unchanged from the original DigiSpark firmware (`../EM4100_Tx`), so readers
-see an identical signal.
+The low-level EM4100 encoding and Manchester half-bit timing match the
+established EM4100 protocol so readers see a standard signal.
 
 ## Features
 
-- **Same sweep behavior as the original** — the half-bit delay is swept across
-  a range (default **200–220 µs**, 20 frames per step) so readers with slightly
-  different clock tolerances still read the card. This reproduces the original
-  `main.cpp` loop exactly.
+- **Rate sweep** — the Manchester half-bit delay is swept across a range
+  (default **200–220 µs**, 20 frames per step) so readers with slightly
+  different clock tolerances still read the card.
 - **Per-card fixed rate** — alternatively, pin a card to one exact half-bit
   delay instead of sweeping.
 - **Browser-stored cards** — card IDs live in the browser's `localStorage`
@@ -24,13 +22,12 @@ see an identical signal.
 
 - Any ESP32 dev board.
 - A coil/antenna driven from `EM4100_TX_PIN` (default **GPIO4**, set in
-  `platformio.ini`). Wire the same output stage the original board used on its
-  TX pin.
+  `platformio.ini`).
 
 ## Build & flash (PlatformIO)
 
 ```bash
-cd Firmware/ESP32_Web
+cd Firmware
 pio run -t upload
 pio device monitor
 ```

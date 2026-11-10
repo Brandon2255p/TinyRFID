@@ -12,8 +12,7 @@
 #define EM4100_TX_PIN 4
 #endif
 
-// Default sweep range, matching the original DigiSpark firmware
-// (half-bit delay swept from 200us to 220us).
+// Default sweep range (half-bit delay swept from 200us to 220us).
 static const uint16_t DEFAULT_SWEEP_MIN = 200;
 static const uint16_t DEFAULT_SWEEP_MAX = 220;
 static const uint16_t DEFAULT_REPEAT    = 20;   // frames per delay step
@@ -207,8 +206,7 @@ void loop()
 
   // Transmit exactly one frame per loop iteration so the web server stays
   // responsive (one frame is ~25ms). After `repeatPerStep` frames, advance
-  // the sweep — this reproduces the original firmware's behavior of sending
-  // a card 20x per half-bit delay and sweeping 200..220us.
+  // the sweep — sending a card 20x per half-bit delay and sweeping 200..220us.
   em4100.transmitEM4100(txData);
   framesSent++;
 
